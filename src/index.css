@@ -569,8 +569,8 @@
       display: flex;
       flex-direction: column;
       height: auto;
-      max-height: 600px;
-      overflow-y: auto;
+      max-height: none;
+      overflow-y: visible;
       gap: 1rem;
       padding-bottom: 1rem;
       max-width: 500px;
