@@ -116,9 +116,38 @@ const ProjectsGrid = () => {
       }
     };
     
+    // Background grid warping effect
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const xPos = (clientX / window.innerWidth - 0.5) * 20;
+      const yPos = (clientY / window.innerHeight - 0.5) * 20;
+      
+      // Apply transform to the background grid
+      document.body.style.setProperty('--x-offset', `${xPos}px`);
+      document.body.style.setProperty('--y-offset', `${yPos}px`);
+      
+      const bodyBefore = document.body.querySelector('body::before') as HTMLElement;
+      if (!bodyBefore) {
+        // Apply directly to body::before via style
+        document.body.style.setProperty('--warp-transform', 
+          `perspective(1000px) rotateX(${yPos * 0.05}deg) rotateY(${-xPos * 0.05}deg) translateX(${xPos * 0.5}px) translateY(${yPos * 0.5}px)`
+        );
+      }
+    };
+    
     list.addEventListener('focus', setIndex as EventListener, true);
     list.addEventListener('mousemove', setIndex as EventListener);
     window.addEventListener('resize', resync);
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    // Apply initial warp effect style to body
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = `
+      body::before {
+        transform: var(--warp-transform, none);
+      }
+    `;
+    document.head.appendChild(styleElement);
     
     // Initial setup
     resync();
@@ -127,6 +156,8 @@ const ProjectsGrid = () => {
       list.removeEventListener('focus', setIndex as EventListener, true);
       list.removeEventListener('mousemove', setIndex as EventListener);
       window.removeEventListener('resize', resync);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.head.removeChild(styleElement);
     };
   }, []);
 
