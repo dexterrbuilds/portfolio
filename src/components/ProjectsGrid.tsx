@@ -81,6 +81,9 @@ const ProjectsGrid = () => {
     if (!list || items.length === 0) return;
     
     const setIndex = (event: MouseEvent | FocusEvent) => {
+      // For mobile, we'll check if the width is small and avoid changing layout
+      if (window.innerWidth <= 768) return;
+      
       const target = event.target as Node;
       const closest = (target.nodeType === 1 ? target : target.parentNode) as Element;
       
@@ -105,14 +108,22 @@ const ProjectsGrid = () => {
       const maxWidth = Math.max(...items.map(i => i.offsetWidth));
       list.style.setProperty('--article-width', maxWidth.toString());
       
-      // Set the first item as active by default
-      if (items.length > 0) {
-        items[0].dataset.active = 'true';
-        const cols = new Array(items.length)
-          .fill('')
-          .map((_, i) => i === 0 ? '10fr' : '1fr')
-          .join(' ');
-        list.style.setProperty('grid-template-columns', cols);
+      // Set all items as active on mobile
+      if (window.innerWidth <= 768) {
+        items.forEach(item => {
+          item.dataset.active = 'true';
+        });
+        list.style.removeProperty('grid-template-columns');
+      } else {
+        // Set the first item as active by default on desktop
+        if (items.length > 0) {
+          items[0].dataset.active = 'true';
+          const cols = new Array(items.length)
+            .fill('')
+            .map((_, i) => i === 0 ? '10fr' : '1fr')
+            .join(' ');
+          list.style.setProperty('grid-template-columns', cols);
+        }
       }
     };
     
