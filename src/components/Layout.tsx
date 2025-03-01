@@ -53,7 +53,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container">
           <div className="social-links">
             <a 
-              href="https://github.com" 
+              href="https://github.com/dexterrbuilds" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -62,7 +62,7 @@ const Layout = ({ children }: LayoutProps) => {
               <Github size={20} />
             </a>
             <a 
-              href="https://twitter.com" 
+              href="https://x.com/dexterrbuilds" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -71,7 +71,7 @@ const Layout = ({ children }: LayoutProps) => {
               <Twitter size={20} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://linkedin.com/in/dexterrbuilds" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -80,7 +80,7 @@ const Layout = ({ children }: LayoutProps) => {
               <Linkedin size={20} />
             </a>
           </div>
-          <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Dexterr. All rights reserved.</p>
         </div>
       </footer>
     </>
