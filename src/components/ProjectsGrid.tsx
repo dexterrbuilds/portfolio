@@ -81,8 +81,8 @@ const ProjectsGrid = () => {
     if (!list || items.length === 0) return;
     
     const setIndex = (event: MouseEvent | FocusEvent) => {
-      // For mobile, we'll check if the width is small and avoid changing layout
-      if (window.innerWidth <= 768) return;
+      // Determine if we're on mobile
+      const isMobile = window.innerWidth <= 768;
       
       const target = event.target as Node;
       const closest = (target.nodeType === 1 ? target : target.parentNode) as Element;
@@ -92,15 +92,25 @@ const ProjectsGrid = () => {
       const li = closest.closest('li');
       if (li) {
         const index = items.indexOf(li as HTMLLIElement);
-        const cols = new Array(items.length)
-          .fill('')
-          .map((_, i) => {
-            items[i].dataset.active = (index === i).toString();
-            return index === i ? '10fr' : '1fr';
-          })
-          .join(' ');
         
-        list.style.setProperty('grid-template-columns', cols);
+        if (isMobile) {
+          // For mobile: only toggle the clicked item
+          items.forEach((item, i) => {
+            // Set active state only for the clicked item
+            item.dataset.active = (i === index).toString();
+          });
+        } else {
+          // For desktop: maintain the original behavior
+          const cols = new Array(items.length)
+            .fill('')
+            .map((_, i) => {
+              items[i].dataset.active = (index === i).toString();
+              return index === i ? '10fr' : '1fr';
+            })
+            .join(' ');
+          
+          list.style.setProperty('grid-template-columns', cols);
+        }
       }
     };
     
@@ -108,10 +118,12 @@ const ProjectsGrid = () => {
       const maxWidth = Math.max(...items.map(i => i.offsetWidth));
       list.style.setProperty('--article-width', maxWidth.toString());
       
-      // Set all items as active on mobile
-      if (window.innerWidth <= 768) {
-        items.forEach(item => {
-          item.dataset.active = 'true';
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile) {
+        // Set only the first item as active by default on mobile
+        items.forEach((item, i) => {
+          item.dataset.active = (i === 0).toString();
         });
         list.style.removeProperty('grid-template-columns');
       } else {
@@ -146,6 +158,7 @@ const ProjectsGrid = () => {
       }
     };
     
+    list.addEventListener('click', setIndex as EventListener);
     list.addEventListener('focus', setIndex as EventListener, true);
     list.addEventListener('mousemove', setIndex as EventListener);
     window.addEventListener('resize', resync);
@@ -164,6 +177,7 @@ const ProjectsGrid = () => {
     resync();
     
     return () => {
+      list.removeEventListener('click', setIndex as EventListener);
       list.removeEventListener('focus', setIndex as EventListener, true);
       list.removeEventListener('mousemove', setIndex as EventListener);
       window.removeEventListener('resize', resync);
