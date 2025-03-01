@@ -7,11 +7,12 @@ const Index = () => {
   return (
     <Layout>
       <section className="hero">
-        <h1 className="fluid hero-title">the craft of ui</h1>
+        <h1 className="fluid hero-title">My name is Dexterr</h1>
         <p className="hero-description">
-          Unlock the art and science of interface development. This isn't just about
-          pushing pixels or following documentation — it's about mastering the
-          tools, understanding the nuances, and shaping experiences with intention.
+          I build and optimize across Web2 and Web3.
+          I craft apps, trading bots, DeFi tools, and software that don’t just work—they flow.
+
+          From sleek Web2 apps to seamless Web3 experiences, I engineer fast, and user-friendly solutions. Need an app? A system that feels great? Let’s build, scale, and disrupt. 🚀
         </p>
         <div className="flex justify-center gap-4">
           <Link 
@@ -32,7 +33,7 @@ const Index = () => {
       <section className="section">
         <h2 className="fluid section-title">Featured Projects</h2>
         <p className="section-description">
-          A selection of my finest work, showcasing my skills in UI/UX design and development.
+          A selection of my finest work, showcasing my skillst.
         </p>
         <ProjectsGrid />
       </section>
