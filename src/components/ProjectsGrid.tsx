@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from "react";
-import { Code, Palette, Tool, Scroll, LucideSettings, LayoutGrid, Clock } from "lucide-react";
+import { Palette, Code, Scroll, Settings, LayoutGrid, Clock, Wrench } from "lucide-react";
 
 interface Project {
   id: number;
@@ -18,7 +18,7 @@ const projects: Project[] = [
     description: "Gain the confidence to build anything you envision, transforming motion, interaction, and design principles into second nature.",
     link: "/projects/the-craft",
     image: "https://picsum.photos/720/720?random=12",
-    icon: <Tool className="project-icon" />
+    icon: <Wrench className="project-icon" />
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const projects: Project[] = [
     description: "Grasp how to tame the pixel playground and when to do so. Whilst building with 'Performance Driven Development'.",
     link: "/projects/canvas",
     image: "https://picsum.photos/720/720?random=128",
-    icon: <LucideSettings className="project-icon" />
+    icon: <Settings className="project-icon" />
   },
   {
     id: 6,
