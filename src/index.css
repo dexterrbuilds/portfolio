@@ -339,7 +339,7 @@
     justify-content: flex-end;
     gap: 1rem;
     padding-inline: calc(var(--base) * 0.5 - 9px);
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
     overflow: hidden;
   }
 
