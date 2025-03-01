@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
       <header className="header">
         <div className="container header-content">
           <Link to="/" className="logo">
-            Dev
+            Dexterr
           </Link>
           <nav className="nav">
             <Link to="/" className="nav-link">
