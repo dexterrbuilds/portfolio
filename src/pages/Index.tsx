@@ -9,6 +9,7 @@ const Index = () => {
       <section className="hero">
         <h1 className="fluid hero-title">My name is Dexterr</h1>
         <p className="hero-description">
+          I am an SNS ambassador.
           I build and optimize across Web2 and Web3.
           I craft apps, trading bots, DeFi tools, and software that don’t just work—they flow.
 
