@@ -38,6 +38,7 @@ const projects: Project[] = [
     technologies: ["TypeScript", "Next.js", "LiveKit", "Supabase", "Gemini"],
     github: "https://github.com/dexterrbuilds/voxa",
     live: "https://usevoxa.vercel.app",
+    image: "/projects/voxa.jpg",
     visual: ["Voice", "STT", "Agent", "TTS"],
     icon: <Bot aria-hidden="true" />,
   },
@@ -51,6 +52,7 @@ const projects: Project[] = [
       "A Fastify and Telegraf backend provisions encrypted Solana wallets, creates vanity-mint Pump.fun launches, and routes swaps into Phoenix perpetual positions. BullMQ workers monitor deposits, creator fees, positions, and idempotent automation cycles backed by Prisma, Postgres, and Redis.",
     technologies: ["TypeScript", "Fastify", "Telegraf", "Solana", "BullMQ"],
     github: "https://github.com/dexterrbuilds/perpflow",
+    image: "/projects/perpflow.jpg",
     visual: ["Telegram", "Launch", "Fees", "Phoenix"],
     icon: <Activity aria-hidden="true" />,
   },
@@ -90,6 +92,7 @@ const projects: Project[] = [
       "A Next.js and Supabase application ingests and normalizes Polymarket data into market discovery, forecaster profiles, leaderboards, and reputation-weighted conviction. Transparent scoring and admin tools keep the intelligence layer explainable as it expands.",
     technologies: ["Next.js", "TypeScript", "Supabase", "Postgres", "Recharts"],
     github: "https://github.com/dexterrbuilds/verity",
+    live: "https://useverity.netlify.app",
     visual: ["Markets", "Ingest", "Score", "Rank"],
     icon: <Radio aria-hidden="true" />,
   },
@@ -190,7 +193,10 @@ const ProjectsGrid = () => {
 
               <div className="project-rail-icon">{project.icon}</div>
 
-              <div className="project-media" aria-hidden="true">
+              <div
+                className={`project-media${project.image ? " project-media-image" : ""}`}
+                aria-hidden="true"
+              >
                 {project.image && (
                   <img
                     src={project.image}

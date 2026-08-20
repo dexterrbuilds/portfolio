@@ -500,12 +500,12 @@
     opacity: 0.46;
   }
 
-  [data-project='clipscout'] .project-diagram {
+  .project-media-image .project-diagram {
     align-items: end;
     padding: 0.75rem;
   }
 
-  [data-project='clipscout'] .project-diagram span {
+  .project-media-image .project-diagram span {
     height: 2.6rem;
     background: color-mix(in hsl, hsl(var(--card)), transparent 3%);
   }
