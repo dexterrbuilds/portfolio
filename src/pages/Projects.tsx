@@ -9,8 +9,7 @@ const Projects = () => {
         <section className="hero">
           <h1 className="fluid hero-title">My Projects</h1>
           <p className="hero-description">
-            Explore my portfolio of projects that showcase my expertise in frontend development, 
-            UI design, and creative problem-solving.
+            Real products and engineering systems across AI, Web3, data, mobile, and full-stack development.
           </p>
         </section>
         

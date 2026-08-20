@@ -13,7 +13,7 @@ const Index = () => {
           I build and optimize across Web2 and Web3.
           I craft apps, trading bots, DeFi tools, and software that don’t just work—they flow.
 
-          From sleek Web2 apps to seamless Web3 experiences, I engineer fast, and user-friendly solutions. Need an app? A system that feels great? Let’s build, scale, and disrupt. 🚀
+          From sleek Web2 apps to seamless Web3 experiences, I engineer fast, user-friendly solutions. Need an app? A system that feels great? Let’s build, scale, and disrupt. 🚀
         </p>
         <div className="flex justify-center gap-4">
           <Link 
@@ -34,7 +34,7 @@ const Index = () => {
       <section className="section">
         <h2 className="fluid section-title">Featured Projects</h2>
         <p className="section-description">
-          A selection of my finest work, showcasing my skillst.
+          Selected product builds spanning AI agents, Solana infrastructure, trading systems, and full-stack applications.
         </p>
         <ProjectsGrid />
       </section>
